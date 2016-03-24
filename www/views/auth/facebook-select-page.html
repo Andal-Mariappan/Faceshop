@@ -18,16 +18,17 @@
             <h4>{{user.name}}</h4>
             <br>
         </div>
-        <ion-list ng-repeat="item in pages">
-            <ion-radio> <img src="https://graph.facebook.com/{{ item.id }}/picture?width=50&height=50" style="border-radius: 100%;"/><label style="margin-bottom:50px;"> {{item.name}} </label></ion-radio>
-        </ion-list>
-
-        <div class="bottom-content row">
+        <div class="list">
+            <a class="item item-icon-left" ng-click="facebookPage()" ng-repeat="item in pages">
+                <img src="https://graph.facebook.com/{{ item.id }}/picture?width=50&height=50" style="border-radius: 100%;" />{{item.name}}
+            </a>
+        </div>
+        <!--         <div class="bottom-content row">
             <div class="col col-bottom text-center">
-                <a class="button button-full button-confirm" ng-click="facebookSignIn()">
+                <a class="button button-full button-confirm" ng-click="facebookPage(item)">
             ยืนยัน
           </a>
             </div>
-        </div>
+        </div> -->
     </ion-content>
 </ion-view>
