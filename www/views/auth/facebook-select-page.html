@@ -1,30 +1,33 @@
-<ion-view class="welcome-view" cache-view="false">
-  <ion-nav-bar>
-    <ion-nav-back-button>
-    </ion-nav-back-button>
-    <ion-nav-buttons side="right">
-      <a class="button button-clear button-light" ui-sref="app.feed">
-        Skip
-      </a>
-    </ion-nav-buttons>
-  </ion-nav-bar>
-  <ion-content scroll="false">
-    <div multi-bg="bgs" interval="3000" helper-class="facebook-welcome-bg">
-      <div class="top-content row">
-        <div class="app-copy col col-center">
-          <h1 class="app-logo">logo</h1>
-          <p class="app-tagline">
-            Your tag line
-          </p>
+<ion-view>
+    <!--   <ion-tabs class="tabs-icon-top tabs-striped tabs-background-balanced tabs-color-light shop-tabs">
+    <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" ui-sref="app.shop.home">
+      <ion-nav-view name="shop-home"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Popular" icon-on="ion-ios-pulse-strong" icon-off="ion-ios-pulse" ui-sref="app.shop.popular">
+      <ion-nav-view name="shop-popular"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Sale" icon-on="ion-ios-pricetags" icon-off="ion-ios-pricetags-outline" ui-sref="app.shop.sale">
+      <ion-nav-view name="shop-sale"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs> -->
+    <ion-content>
+        <div class="text-center bg-myface">
+            <br>
+            <br>
+            <img src="https://graph.facebook.com/{{ user.id }}/picture?width=120&height=120" style="border-radius: 100%;" />
+            <h4>{{user.name}}</h4>
+            <br>
         </div>
-      </div>
-      <div class="bottom-content row">
-        <div class="col col-bottom">
-          <a class="facebook-sign-in button-large button button-block" ui-sref="app.feed">
-            Sign In with Facebook
+        <ion-list ng-repeat="item in pages">
+            <ion-radio> <img src="https://graph.facebook.com/{{ item.id }}/picture?width=50&height=50" style="border-radius: 100%;"/><label style="margin-bottom:50px;"> {{item.name}} </label></ion-radio>
+        </ion-list>
+
+        <div class="bottom-content row">
+            <div class="col col-bottom text-center">
+                <a class="button button-full button-confirm" ng-click="facebookSignIn()">
+            ยืนยัน
           </a>
+            </div>
         </div>
-      </div>
-    </div>
-  </ion-content>
+    </ion-content>
 </ion-view>

@@ -225,7 +225,7 @@ angular.module('faceshop', [
         .state('facebook-select-page', {
             url: "/facebook-select-page",
             templateUrl: "views/auth/facebook-select-page.html",
-            //controller: 'WelcomeCtrl'
+            controller: 'SelectPageCtrl'
         });
 
     // if none of the above states are matched, use this as the fallback

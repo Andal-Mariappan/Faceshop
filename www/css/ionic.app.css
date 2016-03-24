@@ -10166,3 +10166,12 @@ ion-nav-bar.checkout-color * {
     font-size: 14px; }
   .checkout-view .submit-order-btn {
     font-weight: 500; }
+
+.bg-myface{
+  background-color: rgba(78, 186, 186, 0.98);
+}
+
+.button-confirm{
+  background-color: rgba(78, 186, 186, 0.98);
+  color: white;
+}
