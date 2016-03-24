@@ -14,8 +14,7 @@
                 <a class="card-user-name" ui-sref="app.profile.posts({userId:post.userId})">{{item.from.name}}
         </a>
             </p>
-            <p class="card-title" style="font-size:5px;">{{item.updated_time | date:'dd/MM/yyyy'}}</p>
-            <span class="card-moment-posted" am-time-ago="post.date"></span>
+            <span class="card-moment-posted" am-time-ago="item.updated_time"></span>
             <!--             <div class="card-avatar-image-outer" >
                 <a ui-sref="app.profile.posts({userId:post.userId})">
                 <pre-img ratio="_1_1" helper-class="avatar-image rounded-image">

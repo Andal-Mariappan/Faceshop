@@ -104,15 +104,18 @@ angular.module('faceshop.app.controllers', [])
 })
 
 
-.controller('FeedCtrl', function($scope, PostService, OpenFB) {
+.controller('FeedCtrl', function($scope, PostService, OpenFB, $stateParams) {
     $scope.posts = [];
     $scope.page = 1;
     $scope.totalPages = 1;
 
     $scope.loadFeed = function() {
-        OpenFB.get('/me/posts?fields=full_picture,message,updated_time,from,picture', { limit: 20 })
+        var pageID = $stateParams.id;
+        OpenFB.get('/'+ pageID + '/posts?fields=full_picture,message,updated_time,from,picture', { limit: 20 })
             .success(function(result) {
                 $scope.items = result.data;
+;
+
                 // Used with pull-to-refresh
                 $scope.$broadcast('scroll.refreshComplete');
             })
@@ -244,6 +247,43 @@ angular.module('faceshop.app.controllers', [])
 
 })
 
-.controller('CreateShopCtrl', function($scope, $stateParams) {
+.controller('CreateShopCtrl', function($scope, $stateParams, $state) {
     var page = $stateParams;
+
+    $scope.shopInit = function() {
+        $scope.page = page;
+    }
+
+    $scope.gotoselectnameshop = function(page) {
+
+        $state.go('create-shop-name', {
+            access_token: page.access_token,
+            category: page.category,
+            id: page.id,
+            name: page.name,
+
+        });
+    };
+
+    $scope.imagesshop = ['shop1', 'shop2', 'shop3', 'shop4'];
+
+    $scope.selectImage = function(image) {
+        if ($scope.selected_image === image) {
+            $scope.selected_image = '';
+        } else {
+            $scope.selected_image = image;
+        }
+    }
+
+    $scope.gotoFeed = function(page, shopname) {
+        $state.go('app.feed', {
+
+            access_token: page.access_token,
+            category: page.category,
+            id: page.id,
+            name: page.name,
+            shopname: shopname,
+
+        });
+    };
 });

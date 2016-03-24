@@ -100,17 +100,17 @@ angular.module('faceshop.auth.controllers', [])
             })
         $scope.facebookPage = function(page) {
 
-            alert(page.name);
+            //alert(page.name);
 
-            // $state.go('create-shop', {
+            $state.go('create-shop', {
 
-            //     access_token: page.access_token,
-            //     category: page.category,
-            //     id: page.id,
-            //     name: page.name,
+                access_token: page.access_token,
+                category: page.category,
+                id: page.id,
+                name: page.name,
 
-            // });
-            //$location.path('/create-shop');
+            });
+            
         }
 
 

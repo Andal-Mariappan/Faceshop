@@ -69,7 +69,7 @@ angular.module('faceshop', [
     })
 
     .state('app.feed', {
-        url: "/feed",
+        url: "/feed/:access_token/:category/:id/:name:/shopname",
         views: {
             'menuContent': {
                 templateUrl: "views/app/feed.html",
@@ -221,19 +221,24 @@ angular.module('faceshop', [
             url: "/welcome-back",
             templateUrl: "views/auth/welcome-back.html",
             controller: 'WelcomeBackCtrl'
-    })
-    .state('facebook-select-page', {
+        })
+        .state('facebook-select-page', {
             url: "/facebook-select-page",
             templateUrl: "views/auth/facebook-select-page.html",
             controller: 'SelectPageCtrl'
-    })
+        })
 
     //// Dev
     .state('create-shop', {
-        url: "/create-shop/:access_token/:category/:id/:name",
-        templateUrl: "views/app/shop/create-shop.html",
-        controller: 'CreateShopCtrl'
-    })
+            url: "/create-shop/:access_token/:category/:id/:name",
+            templateUrl: "views/app/shop/create-shop.html",
+            controller: 'CreateShopCtrl'
+        })
+        .state('create-shop-name', {
+            url: "/create-shop-name/:access_token/:category/:id/:name",
+            templateUrl: "views/app/shop/create-shop-name.html",
+            controller: 'CreateShopCtrl'
+        })
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/facebook-sign-in');

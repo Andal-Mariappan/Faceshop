@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-content class="BG-Blue" ng-init="shopInit()">
+        <br>
+        <br>
+        <br>
+        <div class="text-center">
+            <h3>กรุณาใส่ชื่อร้านค้า</h3>
+            <h5>(สามารถแก้ไขภายหลังได้)</h5>
+            <div class="row">
+                <div class="col col-25"></div>
+                <div class="col col-50">
+                    <input type="text" style="width:100%;" ng-model="shopname">
+                </div>
+                <div class="col col-25"></div>
+            </div>
+            <br>
+            <button class="button button-energized" ng-click="gotoFeed(page,shopname)" style="width:45%;">
+                ยืนยัน
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
