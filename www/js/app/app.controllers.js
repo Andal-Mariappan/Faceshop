@@ -104,10 +104,23 @@ angular.module('faceshop.app.controllers', [])
 })
 
 
-.controller('FeedCtrl', function($scope, PostService) {
+.controller('FeedCtrl', function($scope, PostService, OpenFB) {
     $scope.posts = [];
     $scope.page = 1;
     $scope.totalPages = 1;
+
+    $scope.loadFeed = function() {
+        OpenFB.get('/me/posts?fields=full_picture,message,updated_time,from,picture', { limit: 20 })
+            .success(function(result) {
+                $scope.items = result.data;
+                // Used with pull-to-refresh
+                $scope.$broadcast('scroll.refreshComplete');
+            })
+            .error(function(data) {
+                $scope.hide();
+                alert(data.error.message);
+            });
+    }
 
     $scope.doRefresh = function() {
         PostService.getFeed(1)
