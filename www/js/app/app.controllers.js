@@ -182,7 +182,8 @@ angular.module('faceshop.app.controllers', [])
 
     $scope.getSubtotal = function() {
         return _.reduce($scope.products, function(memo, product) {
-            return memo + product.price; }, 0);
+            return memo + product.price;
+        }, 0);
     };
 
 })
@@ -192,9 +193,17 @@ angular.module('faceshop.app.controllers', [])
     //$scope.paymentDetails;
 })
 
-.controller('SettingsCtrl', function($scope, $ionicModal) {
+.controller('SettingsCtrl', function($scope, $ionicModal, $state, OpenFB) {
 
     $scope.signOut = function() {
+
+        OpenFB.revokePermissions().then(
+            function() {
+                $state.go('facebook-sign-in');
+            },
+            function() {
+                alert('OpenFB : Revoke Permissions Failed!ppppp');
+            });
 
     }
 

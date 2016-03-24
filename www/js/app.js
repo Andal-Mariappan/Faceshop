@@ -218,10 +218,15 @@ angular.module('faceshop', [
     })
 
     .state('welcome-back', {
-        url: "/welcome-back",
-        templateUrl: "views/auth/welcome-back.html",
-        controller: 'WelcomeBackCtrl'
-    });
+            url: "/welcome-back",
+            templateUrl: "views/auth/welcome-back.html",
+            controller: 'WelcomeBackCtrl'
+        })
+        .state('facebook-select-page', {
+            url: "/facebook-select-page",
+            templateUrl: "views/auth/facebook-select-page.html",
+            //controller: 'WelcomeCtrl'
+        });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/facebook-sign-in');
