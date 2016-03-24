@@ -244,6 +244,6 @@ angular.module('faceshop.app.controllers', [])
 
 })
 
-
-
-;
+.controller('CreateShopCtrl', function($scope, $stateParams) {
+    var page = $stateParams;
+});

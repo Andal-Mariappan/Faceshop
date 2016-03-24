@@ -1,15 +1,4 @@
 <ion-view>
-    <!--   <ion-tabs class="tabs-icon-top tabs-striped tabs-background-balanced tabs-color-light shop-tabs">
-    <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" ui-sref="app.shop.home">
-      <ion-nav-view name="shop-home"></ion-nav-view>
-    </ion-tab>
-    <ion-tab title="Popular" icon-on="ion-ios-pulse-strong" icon-off="ion-ios-pulse" ui-sref="app.shop.popular">
-      <ion-nav-view name="shop-popular"></ion-nav-view>
-    </ion-tab>
-    <ion-tab title="Sale" icon-on="ion-ios-pricetags" icon-off="ion-ios-pricetags-outline" ui-sref="app.shop.sale">
-      <ion-nav-view name="shop-sale"></ion-nav-view>
-    </ion-tab>
-  </ion-tabs> -->
     <ion-content>
         <div class="text-center bg-myface">
             <br>
@@ -19,8 +8,8 @@
             <br>
         </div>
         <div class="list">
-            <a class="item item-icon-left" ng-click="facebookPage()" ng-repeat="item in pages">
-                <img src="https://graph.facebook.com/{{ item.id }}/picture?width=50&height=50" style="border-radius: 100%;" />{{item.name}}
+            <a class="item item-icon-left" ng-click="facebookPage(item)" ng-repeat="item in pages">
+                <img src="https://graph.facebook.com/{{ item.id }}/picture?width=40&height=40" style="border-radius: 100%; margin-bottom: -13px;" /> <label>{{item.name}}</label>
             </a>
         </div>
         <!--         <div class="bottom-content row">

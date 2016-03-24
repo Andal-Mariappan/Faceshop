@@ -86,23 +86,35 @@ angular.module('faceshop.auth.controllers', [])
 
 })
 
-.controller('SelectPageCtrl', ['$scope', '$state', '$location', 'OpenFB', 
-    function($scope, $state, $location, OpenFB) {
+.controller('SelectPageCtrl', ['$scope', '$state', 'OpenFB',
+    function($scope, $state, OpenFB) {
 
-    OpenFB.get('/me?fields=id,name,email,birthday,picture').success(function(user) {
-        $scope.user = user;
-    });
+        OpenFB.get('/me?fields=id,name,email,birthday,picture').success(function(user) {
+            $scope.user = user;
+        });
 
-    OpenFB.get('/me/accounts', { limit: 30 })
-        .success(function(result) {
+        OpenFB.get('/me/accounts', { limit: 30 })
+            .success(function(result) {
 
-            $scope.pages = result.data;
-        })
-    $scope.facebookPage = function(page) {
-        $location.path('/create-shop');
+                $scope.pages = result.data;
+            })
+        $scope.facebookPage = function(page) {
+
+            alert(page.name);
+
+            // $state.go('create-shop', {
+
+            //     access_token: page.access_token,
+            //     category: page.category,
+            //     id: page.id,
+            //     name: page.name,
+
+            // });
+            //$location.path('/create-shop');
+        }
+
+
     }
-
-
-}])
+])
 
 ;

@@ -230,9 +230,9 @@ angular.module('faceshop', [
 
     //// Dev
     .state('create-shop', {
-        url: "/create-shop",
+        url: "/create-shop/:access_token/:category/:id/:name",
         templateUrl: "views/app/shop/create-shop.html",
-        //controller: 'SelectPageCtrl'
+        controller: 'CreateShopCtrl'
     })
 
     // if none of the above states are matched, use this as the fallback
