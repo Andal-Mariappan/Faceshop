@@ -1,4 +1,4 @@
-angular.module('your_app_name.app.services', [])
+angular.module('faceshop.app.services', [])
 
 .service('AuthService', function (){
 
