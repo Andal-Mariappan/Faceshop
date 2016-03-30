@@ -1,0 +1,22 @@
+<ion-view class="" view-title="Post">
+  <ion-content scroll="true">
+    
+        <div class="list list-inset">
+            <img src="https://graph.facebook.com/{{ pages.id }}/picture?width=20&height=20" /> 
+            <label>{{pages.name}}</label>
+            <br>
+            <br>
+            <label class="item item-input">
+                <textarea placeholder="What's on your mind?" ng-model="item.message" rows="10"></textarea>
+            </label>
+
+            <button class="button button-block button-positive" ng-click="post()">
+                Post
+            </button>
+
+            <p>{{status}}</p>
+
+        </div>
+
+  </ion-content>
+</ion-view>

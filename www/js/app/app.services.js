@@ -155,8 +155,3 @@ angular.module('faceshop.app.services', [])
   };
 
 })
-
-
-
-
-;

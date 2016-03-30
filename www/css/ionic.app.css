@@ -13100,6 +13100,12 @@ ion-nav-bar.feed-color ion-header-bar {
     border: none !important;
     background-size: 0px !important;
 }
+ion-nav-bar.post-color ion-header-bar {
+    background-color: #4EBABA !important;
+    background: #4EBABA !important;
+    border: none !important;
+    background-size: 0px !important;
+}
 
 ion-nav-bar.feed-color * {
     color: #FFFFFF;
