@@ -103,13 +103,13 @@ angular.module('faceshop.app.controllers', [])
 })
 
 
-.controller('FeedCtrl', function($scope, PostService, OpenFB, $stateParams) {
+.controller('FeedCtrl', function($scope, PostService, OpenFB, $stateParams,$state) {
     $scope.posts = [];
     $scope.page = 1;
     $scope.totalPages = 1;
-
+    var pageData = $stateParams
     $scope.loadFeed = function() {
-        var pageID = $stateParams.id;
+        var pageID = pageData.id;
         OpenFB.get('/' + pageID + '/posts?fields=full_picture,message,updated_time,from,picture', { limit: 20 })
             .success(function(result) {
                 $scope.items = result.data;;
@@ -156,6 +156,18 @@ angular.module('faceshop.app.controllers', [])
     };
 
     $scope.doRefresh();
+
+    $scope.gotoPost = function(){
+        $state.go('post', {
+
+                access_token: pageData.access_token,
+                category: pageData.category,
+                id: pageData.id,
+                name: pageData.name,
+                shopname: pageData.shopname,
+
+            });
+    }
 
 })
 
@@ -278,7 +290,7 @@ angular.module('faceshop.app.controllers', [])
         }
 
         $scope.gotoFeed = function(page, shopname) {
-            $state.go('app.feed', {
+            $state.go('feed', {
 
                 access_token: page.access_token,
                 category: page.category,

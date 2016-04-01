@@ -12395,7 +12395,7 @@ ion-spinner.spinner-on-load {
 
 .welcome-view .top-content .app-copy {
     text-align: center;
-    padding-top: 20vh;
+    padding-top: 10vh;
 }
 
 .welcome-view .top-content .app-logo {
@@ -13807,4 +13807,7 @@ ion-nav-bar.checkout-color * .buttons button::before {
 
 .BG-Blue {
     background-color: #3DC5C4;
+}
+.color-white{
+  color:#FFF;
 }

@@ -1,19 +1,19 @@
 <ion-view>
-    <ion-content class="BG-Blue" ng-init="shopInit()">
-        <br>
-        <br>
-        <br>
-        <div class="text-center">
+    <ion-content scroll="false" class="BG-Blue" ng-init="shopInit()">
+        <div class="text-center" style="margin-top:150px;">
             <h3>กรุณาใส่ชื่อร้านค้า</h3>
             <h5>(สามารถแก้ไขภายหลังได้)</h5>
             <div class="row">
                 <div class="col col-25"></div>
                 <div class="col col-50">
-                    <input type="text" style="width:100%;" ng-model="shopname">
+                    <div class="item-input-inset">
+                        <label class="item item-input">
+                            <input type="text" placeholder="First Name" ng-model="shopname">
+                        </label>
+                    </div>
                 </div>
                 <div class="col col-25"></div>
             </div>
-            <br>
             <button class="button button-energized" ng-click="gotoFeed(page,shopname)" style="width:45%;">
                 ยืนยัน
             </button>
